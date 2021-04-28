@@ -8,6 +8,9 @@
         {{form.hidden_tag() }}
         <p> {{form.firstname(size=35, placeholder = "Firstname")}}
             {{form.lastname(size=35, placeholder = "Lastname")}} </p>
+            {% for error in form.firstname.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
         <p> {{form.email(size=35, placeholder = "Email")}}
             {{form.confirm_email(size=35, placeholder = "Confirm Email")}} </p>
         <p> {{form.password(size=35, placeholder = "Password")}}
