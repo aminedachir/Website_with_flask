@@ -2,7 +2,8 @@
 
 {% block content %}
     <form action="" method="POST">
-        <p> {{}} </p>
+        {{form.hidden_tag() }}
+        <p> {{form.firstname(size=50)}} </p>
 
     </form>
 {% endblock %}
