@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<center>
+    <br><br><br><br><br><br>
+    <h1>Sign Up</h1>
     <form action="" method="POST">
         {{form.hidden_tag() }}
-        <p> {{form.lastname(size=50)}} </p>
-        <p> {{form.password(size=50)}} </p>
+        <p> {{form.firstname(size=35, placeholder = "Firstname")}}
+            {{form.lastname(size=35, placeholder = "Lastname")}} </p>
 
     </form>
+</center>
 {% endblock %}
