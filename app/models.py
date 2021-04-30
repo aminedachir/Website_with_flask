@@ -12,7 +12,7 @@ class Users(db.Model):
     def __repr__(self):
         return f"<user {self.email}>"
 
-class Posts(db.Model):
+class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime,index = True, default = datetime.utcnow)
