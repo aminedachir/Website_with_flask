@@ -1,7 +1,7 @@
 from datetime import datetime
 from app import db
 
-class Users(db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     firstname = db.Column(db.String(100), unique = True, index = True)
     lastname = db.Column(db.String(100), unique = True, index = True)
