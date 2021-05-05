@@ -9,6 +9,7 @@ class User(db.Model):
     password = db.Column(db.String(128))
     email = db.Column(db.String(120))
     posts = db.relationship('Post',backref='author',lazy='dynamic')
+
     def set_password(self,password):
         self.password_hash = generate_password_hash(password)
 
