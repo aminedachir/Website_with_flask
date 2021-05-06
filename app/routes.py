@@ -11,6 +11,11 @@ def home():
 
 @app.route('/login')
 def login():
+    form = LoginForm()
+    return render_template('login.html', form = form)
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
@@ -19,13 +24,5 @@ def login():
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
             return redirect('/login')
-        login_user(user, remember=form.remember_me.data)
-        return redirect(url_for('index'))
-    return render_template('login.html', form = form)
-
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-    form = LoginForm()
-    if form.validate_on_submit():
-        return redirect('/login')
+        return redirect(url_for('/index'))
     return render_template('signup.html', form = form)
