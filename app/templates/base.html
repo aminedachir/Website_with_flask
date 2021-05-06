@@ -4,7 +4,12 @@
     </head>
     <body>
         {% block content %}
-        
+            <a href="{{url_for('index')}}"></a>
+            {% if current_user.is_anonymous %}
+            <a href="{{url_for('login')}}"></a>
+            {% else %}
+            <a href="{{url_for('logout')}}"></a>
+            {% endif %}
         {% endblock %}
     </body>
 </html>
