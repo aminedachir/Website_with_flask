@@ -13,14 +13,7 @@ def home():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    if current_user.is_authenticated:
-        return redirect('/index')
     form = LoginForm()
     if form.validate_on_submit():
-        user = User.query.filter_by(firstname=form.firstname.data).first()
-        if user is None or not user.check_password(form.password.data):
-            flash('Invalid username or password')
-            return redirect('/index')
-        login_user(user)
-        return redirect('/index')
+        flash("registred !!")
     return render_template('signup.html', title='Sign In', form=form)
