@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<style>
-	h1{color: red;}
-</style>
 <center>
-	<form action="" method="POST">
-		{{form.hidden_tag()}}
-			<br><br><br><br><br><br>
-			<h1>Log In</h1>
-			<p> {{form.email(size=25,placeholder = "Email")}} </p>
-			<p> {{form.password(size=25,placeholder = "Password")}} </p>
-			<p> {{form.submit ()}} </p>
-	</form>
+    <br><br><br><br><br><br>
+    <h1>Sign Up</h1>
+    <form action="" method="POST">
+        {{form.hidden_tag() }}
+        <p> {{form.email(size=35, placeholder = "Email")}}</p>
+		{% for error in form.email.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        <p> {{form.password(size=35, placeholder = "Password")}}</p>
+        <p> {{form.submit() }} </p>
+    </form>
 </center>
-
 {% endblock %}
