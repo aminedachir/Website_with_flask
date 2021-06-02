@@ -12,9 +12,10 @@ def home():
 
 @app.route('/login')
 def login():
-    return render_template("login.html")
+    form = LoginForm()
+    return render_template("login.html", form = form)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     form = LoginForm()
-    return render_template('signup.html', title='Sign In', form=form)
+    return render_template('signup.html', title='Sign In', form = form)
