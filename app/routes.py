@@ -19,5 +19,6 @@ def login():
 def signup():
     form = LoginForm()
     if form.validate_on_submit():
+        flash("ragistred")
         return '<h1>' + form.email.data + '</h1>'
     return render_template('signup.html', title='Sign In', form = form)
