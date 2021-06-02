@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, flash
 from app import app
 from app.forms import LoginForm
 from app.models import User
@@ -13,6 +13,8 @@ def home():
 @app.route('/login')
 def login():
     form = LoginForm()
+    if form.validate_on_submit():
+        return '<h1>' + form.email.data + '</h1>'
     return render_template("login.html", form = form)
 
 @app.route('/signup', methods=['GET', 'POST'])
