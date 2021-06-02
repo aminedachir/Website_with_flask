@@ -8,6 +8,7 @@ app = Flask(__name__)
 login = LoginManager(app)
 app.config['SECRET_KEY'] = "Admemdcin31431@adm"
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////home/amine/new_website/src/app.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config.from_object('config')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
