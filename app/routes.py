@@ -23,5 +23,5 @@ def signup():
             email = form.email.data)
         db.session.add(new_user)
         sb.session.commit()
-        return "new user account created !"
+        return "new user account created now !!"
     return render_template('signup.html', title='Sign In', form = form)
