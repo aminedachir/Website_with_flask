@@ -19,6 +19,7 @@ def login():
 def signup():
     form = LoginForm()
     if form.validate_on_submit():
-        flash("ragistred")
-        return '<h1>' + form.email.data + '</h1>'
+        new_user = User(firstname = from.firstname.data)
+        db.session.add(new_user)
+        sb.session.commit()
     return render_template('signup.html', title='Sign In', form = form)
