@@ -7,7 +7,7 @@
     <form action="" method="POST">
         {{form.hidden_tag() }}
         <p> {{form.email(size=35, placeholder = "Email")}}</p>
-		{% for error in form.email.errors %}
+		    {% for error in form.email.errors %}
             <span style="color: red;">{{ error }}</span>
             {% endfor %}
         <p> {{form.password(size=35, placeholder = "Password")}}</p>
