@@ -1,4 +1,4 @@
-from flask import render_template, flash
+from flask import render_template, redirect
 from app import app
 from app import db
 from app.forms import LoginForm
@@ -23,5 +23,5 @@ def signup():
         new_user = User(firstname = form.firstname.data, email = form.email.data, password = form.password.data)
         db.session.add(new_user)
         db.session.commit()
-        return "<center><h1 style='color:red;'>new user account created now !!</h1></center>"
+        return redirect('/index')
     return render_template('signup.html', title='Sign In', form = form)
