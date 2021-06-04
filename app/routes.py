@@ -20,7 +20,7 @@ def login():
 def signup():
     form = LoginForm()
     if form.validate_on_submit():
-        new_user = User(firstname = form.firstname.data, email = form.email.data)
+        new_user = User(firstname = form.firstname.data, email = form.email.data, password = form.password.data)
         db.session.add(new_user)
         db.session.commit()
         return "<center><h1 style='color:red;'>new user account created now !!</h1></center>"
