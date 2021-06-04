@@ -19,9 +19,8 @@ def login():
 def signup():
     form = LoginForm()
     if form.validate_on_submit():
-        new_user = User(firstname = from.firstname.data, lastname = form.lastname.data \
-            email = form.email.data)
+        new_user = User(firstname = form.firstname.data, lastname = form.lastname.data, email = form.email.data)
         db.session.add(new_user)
-        sb.session.commit()
+        db.session.commit()
         return "new user account created now !!"
     return render_template('signup.html', title='Sign In', form = form)
