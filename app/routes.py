@@ -1,4 +1,5 @@
 from flask import render_template, redirect
+from flask_login import login_user
 from app import app
 from app import db
 from app.forms import LoginForm, LoginForm2
@@ -15,6 +16,10 @@ def home():
 def login():
     form = LoginForm2()
     if form.validate_on_submit():
+        user = User.query.filter_by(email = form.email.data).first()
+        if user:
+            if user.password == form.password.data:
+                return redirect('/index')
         return 'hello'
     return render_template("login.html", form = form)
 
