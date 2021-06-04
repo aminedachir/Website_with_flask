@@ -6,15 +6,12 @@
     <h1>Sign Up</h1>
     <form action="" method="POST">
         {{form.hidden_tag() }}
-        <p> {{form.firstname(size=35, placeholder = "Firstname")}}
-            {{form.lastname(size=35, placeholder = "Lastname")}} </p>
+        <p> {{form.firstname(size=35, placeholder = "Firstname")}}</p>
             {% for error in form.firstname.errors %}
             <span style="color: red;">{{ error }}</span>
             {% endfor %}
-        <p> {{form.email(size=35, placeholder = "Email")}}
-            {{form.confirm_email(size=35, placeholder = "Confirm Email")}} </p>
-        <p> {{form.password(size=35, placeholder = "Password")}}
-            {{form.confirm_password(size=35, placeholder = "Confirm Password")}} </p>
+        <p> {{form.email(size=35, placeholder = "Email")}}</p>
+        <p> {{form.password(size=35, placeholder = "Password")}}</p>
         <p> {{form.submit() }} </p>
 
     </form>
