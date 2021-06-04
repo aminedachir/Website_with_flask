@@ -17,10 +17,7 @@ def login():
     form = LoginForm2()
     if form.validate_on_submit():
         user = User.query.filter_by(email = form.email.data).first()
-        if user:
-            if user.password == form.password.data:
-                return redirect('/index')
-        return 'hello'
+        return 'You Are logined'
     return render_template("login.html", form = form)
 
 @app.route('/signup', methods=['GET', 'POST'])
