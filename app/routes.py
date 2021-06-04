@@ -1,5 +1,6 @@
 from flask import render_template, flash
 from app import app
+from app import db
 from app.forms import LoginForm
 from app.models import User
 
