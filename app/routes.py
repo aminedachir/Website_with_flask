@@ -2,7 +2,7 @@ from flask import render_template, redirect
 from flask.helpers import flash
 from flask_login import current_user, login_user, logout_user
 from app import app
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
 from app.forms import LoginForm, LoginForm2
 from app.models import User
@@ -32,8 +32,7 @@ def signup():
         if form.firstname.data == form.password.data:
             return "Don't write your name in your password"
         else:
-            hash_password = generate_password_hash(form.password.data)
-            new_user = User(firstname = form.firstname.data, email = form.email.data, password = hash_password)
+            new_user = User(firstname = form.firstname.data, email = form.email.data, password = generate_password_hash(form.password.data))
             db.session.add(new_user)
             db.session.commit()
             return redirect('/login')
