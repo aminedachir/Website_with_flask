@@ -24,10 +24,13 @@ def login():
 def signup():
     form = LoginForm()
     if form.validate_on_submit():
-        new_user = User(firstname = form.firstname.data, email = form.email.data, password = form.password.data)#,confirm = form.confirm.data)
-        db.session.add(new_user)
-        db.session.commit()
-        return redirect('/login')
+        if form.firstname.data == form.password.data:
+            return "Don't write your name in your password"
+        else:
+            new_user = User(firstname = form.firstname.data, email = form.email.data, password = form.password.data)
+            db.session.add(new_user)
+            db.session.commit()
+            return redirect('/login')
     return render_template('signup.html', title='Sign In', form = form)
 
 @app.route('/logout')
