@@ -42,4 +42,4 @@ def signup():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect('/login')
+    return redirect('/index')
