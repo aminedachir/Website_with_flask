@@ -1,5 +1,6 @@
 from flask import render_template, redirect
-from flask_login import login_user
+from flask.helpers import flash
+from flask_login import current_user, login_user
 from app import app
 from app import db
 from app.forms import LoginForm, LoginForm2
@@ -14,11 +15,16 @@ def home():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect('/index')
     form = LoginForm2()
     if form.validate_on_submit():
-        user = User.query.filter_by(email = form.email.data).first()
-        return 'You Are logined'
-    return render_template("login.html", form = form)
+        user = User.query.filter_by(email=form.email.data).first()
+        if user:
+            if user.password == form.password.data:
+                return redirect('/index')
+        return "INVALID"
+    return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
@@ -36,4 +42,4 @@ def signup():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect('/login')
