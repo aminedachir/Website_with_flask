@@ -20,7 +20,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user:
-            if user.password == form.password.data:
+            if check_password_hash(user.password,form.password.data):
                 return redirect('/index')
         return "INVALID"
     return render_template('login.html', title='Sign In', form=form)
