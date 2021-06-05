@@ -3,6 +3,10 @@ from app import login
 from datetime import datetime
 from app import db
 
+@login.user_loader
+def load_user(id):
+    return User.query.get(int(id))
+    
 class User(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     firstname = db.Column(db.String(100), unique = True, index = True)
@@ -18,10 +22,6 @@ class User(db.Model):
 
     def __repr__(self):
         return f"<User {self.firstname}>"
-
-@login.user_loader
-def load_user(id):
-    return User.query.get(int(id))
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key = True)
