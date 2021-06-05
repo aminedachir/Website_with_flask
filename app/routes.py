@@ -1,6 +1,6 @@
 from flask import render_template, redirect
 from flask.helpers import flash
-from flask_login import current_user, login_user
+from flask_login import current_user, login_user, logout_user
 from app import app
 from app import db
 from app.forms import LoginForm, LoginForm2
@@ -9,9 +9,7 @@ from app.models import User
 @app.route('/')
 @app.route('/index')
 def home():
-    return '<h1>Hello,world</h1>' '''
-    <a href='/signup'>Signup</a>
-    '''
+    return render_template("index.html")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

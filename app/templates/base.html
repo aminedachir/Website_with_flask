@@ -1,15 +1,22 @@
 <html>
     <head>
         <title></title>
+        <style>
+            a{
+                color: brown;
+            }
+        </style>
     </head>
     <body>
         {% block content %}
-            <a href="{{url_for('index')}}"></a>
+        <div>
+            <a href="{{('/index')}}">Home</a>
             {% if current_user.is_anonymous %}
-            <a href="{{url_for('login')}}"></a>
+            <a href="{{('/login')}}">Login</a>
             {% else %}
-            <a href="{{url_for('logout')}}"></a>
+            <a href="{{('/logout')}}">Logout</a>
             {% endif %}
+        </div>
         {% endblock %}
     </body>
 </html>
