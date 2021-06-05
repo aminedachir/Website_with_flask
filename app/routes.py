@@ -24,7 +24,7 @@ def login():
 def signup():
     form = LoginForm()
     if form.validate_on_submit():
-        new_user = User(firstname = form.firstname.data, email = form.email.data, password = form.password.data)
+        new_user = User(firstname = form.firstname.data, email = form.email.data, password = form.password.data)#,confirm = form.confirm.data)
         db.session.add(new_user)
         db.session.commit()
         return redirect('/login')

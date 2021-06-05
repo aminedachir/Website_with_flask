@@ -6,6 +6,7 @@ class LoginForm(FlaskForm):
     firstname = StringField('firstname', validators=[DataRequired(), Length(min=4, max=8)])
     email = StringField('email', validators=[DataRequired(), Length(min=8,max=80)])
     password = PasswordField('Password', validators=[DataRequired()])
+    #confirm = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Sign In')
 
 class LoginForm2(FlaskForm):
