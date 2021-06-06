@@ -22,7 +22,7 @@ def login():
         if user:
             if check_password_hash(user.password,form.password.data):
                 return redirect('/index')
-        return "INVALID"
+        return "INVALID username or password"
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/signup', methods=['GET', 'POST'])
