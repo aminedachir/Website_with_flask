@@ -1,6 +1,6 @@
 from flask import render_template, redirect
 from flask.helpers import flash
-from flask_login import current_user, login_user, logout_user
+from flask_login import current_user
 from app import app
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
