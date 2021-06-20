@@ -37,8 +37,3 @@ def signup():
             db.session.commit()
             return redirect('/login')
     return render_template('signup.html', title='Sign In', form = form)
-
-@app.route('/logout')
-def logout():
-    logout_user()
-    return redirect('/index')
