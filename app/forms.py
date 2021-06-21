@@ -12,3 +12,8 @@ class LoginForm2(FlaskForm):
     email = StringField('email', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Log In')
+
+class LoginForm3(FlaskForm):
+    password_a = PasswordField('password_a',validators=[DataRequired()])
+    password_n = PasswordField('password_n',validators=[DataRequired()])
+    submit = SubmitField('Change')
