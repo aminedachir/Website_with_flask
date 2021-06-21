@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="form_one">
-    <center>
-        <br><br><br><br><br><br>
-        <h1>Sign Up</h1>
-        <form action="" method="POST">
-            {{form.hidden_tag() }}
-            <p> {{form.firstname(size=35, placeholder = "Firstname")}}</p>
-                {% for error in form.firstname.errors %}
-                <span style="color: red;">{{ error }}</span>
-                {% endfor %}
-            <p> {{form.email(size=35, placeholder = "Email")}}</p>
-            <p> {{form.password(size=35, placeholder = "Password")}}</p>
-            <p> {{form.submit() }} </p>
-        </form>
-    </center>
-</div>
+<center>
+    <br><br><br><br><br><br>
+    <h1>Sign Up</h1>
+    <form action="" method="POST">
+        {{form.hidden_tag() }}
+        <p> {{form.firstname(size=35, placeholder = "Firstname")}}</p>
+            {% for error in form.firstname.errors %}
+            <span style="color: red;">{{ error }}</span>
+            {% endfor %}
+        <p> {{form.email(size=35, placeholder = "Email")}}</p>
+        <p> {{form.password(size=35, placeholder = "Password")}}</p>
+        <p> {{form.submit() }} </p>
+    </form>
+</center>
 {% endblock %}
