@@ -38,8 +38,20 @@ def signup():
             return redirect('/login')
     return render_template('signup.html', title='Sign In', form = form)
 
-@app.route('/changePassword')
+@app.route('/changePassword', methods=['GET', 'POST'])
 def change():
     form = LoginForm3()
+    if form.validate_on_submit():
+        #user = User.query.filter_by(email=form.email.data).first()
+        #if user:
+        if form.password_n == form.confim_password_n:
+            new_password = User(password_n = generate_password_hash(form.password_n.data))
+            db.session.add(new_password)
+            db.session.commit()
+            return redirect('/login')
+        else:
+            return "passwords don't match"
+        #else:
+            #return "INVALID email"
     return render_template('changp.html', title='change password', form = form)
 

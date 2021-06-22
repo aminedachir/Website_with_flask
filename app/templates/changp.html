@@ -1,20 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}
-
-{% endblock %}
-
 {% block content %}
 <center>
     <br><br><br><br><br><br>
-    <form>
+    <form action="" method="POST">
         {{form.hidden_tag()}}
+        <!--
         <h3> your email :</h3>
-        <p> {{form.email(size=35,placeholder="enter your address email")}} </p>
+        <p> {{form.email(size=35,placeholder="enter your address email")}} </p>-->
         <h2> change Password </h2>
-        <p> {{form.password_a(size=35,placeholder="your old password")}} </p>
         <p> {{form.password_n(size=35,placeholder="write a new password")}} </p>
-        <p> {{form.password_n(size=35,placeholder="repeat your new password")}} </p>
+        <p> {{form.confirm_password_n(size=35,placeholder="repeat your new password")}} </p>
         <p> {{form.submit ()}} </p>
     </form>
 </center>
