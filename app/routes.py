@@ -38,7 +38,7 @@ def signup():
             return redirect('/login')
     return render_template('signup.html', title='Sign In', form = form)
 
-@app.route('/changepassword')
+@app.route('/changePassword')
 def change():
     form = LoginForm3()
     return render_template('changp.html', title='change password', form = form)
