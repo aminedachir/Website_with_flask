@@ -41,3 +41,5 @@ def signup():
 @app.route('/changepassword')
 def change():
     form = LoginForm3()
+    return render_template('changp.html', title='change password', form = form)
+
