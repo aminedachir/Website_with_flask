@@ -4,7 +4,7 @@ from flask_login import current_user
 from app import app
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
-from app.forms import LoginForm, LoginForm2
+from app.forms import LoginForm, LoginForm2, LoginForm3
 from app.models import User
 
 @app.route('/')
@@ -40,4 +40,4 @@ def signup():
 
 @app.route('/changepassword')
 def change():
-
+    form = LoginForm3()
