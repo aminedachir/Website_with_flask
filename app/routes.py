@@ -8,10 +8,6 @@ from app.forms import LoginForm, LoginForm2, LoginForm3
 from app.models import User
 
 @app.route('/')
-@app.route('/index')
-def home():
-    return render_template("index.html")
-
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -22,8 +18,13 @@ def login():
         if user:
             if check_password_hash(user.password,form.password.data):
                 return redirect('/index')
-        return "INVALID username or password"
+        else:    
+            return "INVALID username or password"
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/index')
+def home():
+    return render_template("index.html")
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
