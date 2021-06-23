@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
-<style>
-    a:link{color:#1affd1;text-decoration: None;font-size: 50px;}
-    a:hover{color:red;}
-    a:visited{color:#1affd1;}
-    p{font-size: 50px;}
-    body{background-color:#e6e6e6;}
-</style>
 {% block content %}
-
+<fieldset>
+    <div>
+        <a href="{{('/index')}}">Home</a>
+        {% if current_user.is_anonymous %}
+        <a href="{{('/login')}}">Login</a>
+        {% else %}
+        <a href="{{('/logout')}}">Logout</a>
+        {% endif %}
+    </div>
+</fieldset>
 {% endblock %}
