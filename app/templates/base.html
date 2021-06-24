@@ -11,6 +11,16 @@
     </head>
     <body>
         {% block content %}
+            <fieldset>
+                <div>
+                    <a href="{{('/index')}}">Home</a>
+                    {% if current_user.is_anonymous %}
+                    <a href="{{('/login')}}">Login</a>
+                    {% else %}
+                    <a href="{{('/logout')}}">Logout</a>
+                    {% endif %}
+                </div>
+            </fieldset>
         {% endblock %}
     </body>
 </html>

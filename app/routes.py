@@ -46,8 +46,6 @@ def signup():
 def change():
     form = LoginForm3()
     if form.validate_on_submit():
-        #user = User.query.filter_by(email=form.email.data).first()
-        #if user:
         if form.password_n == form.confim_password_n:
             new_password = User(password_n = generate_password_hash(form.password_n.data))
             db.session.add(new_password)
