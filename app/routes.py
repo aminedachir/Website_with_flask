@@ -59,7 +59,8 @@ def change():
             #return "INVALID email"
     return render_template('changp.html', title='change password', form = form)
 
-@app.route('/multiplication', methods = ['GET', 'POST'])
+@app.route('/multiplication', methods=['GET', 'POST'])
 def multiplication():
-    render_template('multiplication.html', title = 'multiplication')
+    title = 'multiplication'
+    return render_template('multiplication.html', title = title )
 

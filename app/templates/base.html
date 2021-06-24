@@ -13,9 +13,10 @@
     <body>
         <fieldset>
             <div>
-                <a href="{{('/index')}}" class="link__">Home</a>
+                <a href="{{('/index')}}" class="link__">Home </a>
                 {% if current_user.is_anonymous %}
-                <a href="{{('/login')}}" class="link__">Login</a>
+                <a href="{{('/login')}}" class="link__">Login </a>
+                <a href="{{('/multiplication')}}" class="link__"> multiplication</a>
                 {% else %}
                 <a href="{{('/logout')}}" class="link__">Logout</a>
                 {% endif %}
