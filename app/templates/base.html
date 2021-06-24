@@ -2,25 +2,26 @@
     <head>
         <title></title>
         <style>
-            a:link{color:#1affd1;text-decoration: None;font-size: 30px;}
-            a:hover{color:red;}
-            a:visited{color:#1affd1;}
+            .link__:link{color:#1affd1;text-decoration: None;font-size: 30px;}
+            .link__:hover{color:red;}
+            .link__:visited{color:#1affd1;}
             p{font-size: 30px;}
-            body{background-color:#e6e6e6;}
+            body{background-color:white;}
+            fieldset{background-color: #e6e6e6;}
         </style>
     </head>
     <body>
+        <fieldset>
+            <div>
+                <a href="{{('/index')}}" class="link__">Home</a>
+                {% if current_user.is_anonymous %}
+                <a href="{{('/login')}}" class="link__">Login</a>
+                {% else %}
+                <a href="{{('/logout')}}" class="link__">Logout</a>
+                {% endif %}
+            </div>
+        </fieldset>
         {% block content %}
-            <fieldset>
-                <div>
-                    <a href="{{('/index')}}">Home</a>
-                    {% if current_user.is_anonymous %}
-                    <a href="{{('/login')}}">Login</a>
-                    {% else %}
-                    <a href="{{('/logout')}}">Logout</a>
-                    {% endif %}
-                </div>
-            </fieldset>
         {% endblock %}
     </body>
 </html>
