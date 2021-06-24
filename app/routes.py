@@ -8,6 +8,8 @@ from app.forms import LoginForm, LoginForm2, LoginForm3
 from app.models import User
 
 @app.route('/')
+def homee ():
+    return redirect('/login')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -22,7 +24,7 @@ def login():
             return redirect('/index')
 
         else:    
-            return "INVALID username or password"
+            return "INVALID username or password Try again"
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/index')
