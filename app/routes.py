@@ -55,8 +55,6 @@ def change():
             return redirect('/login')
         else:
             return "passwords don't match"
-        #else:
-            #return "INVALID email"
     return render_template('changp.html', title='change password', form = form)
 
 @app.route('/multiplication', methods=['GET', 'POST'])
