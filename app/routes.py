@@ -62,3 +62,7 @@ def multiplication():
     title = 'multiplication'
     return render_template('multiplication.html', title = title )
 
+@app.route('/division', methods=['GET', 'POST'])
+def division():
+    return render_template('division.html')
+
