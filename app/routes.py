@@ -35,8 +35,10 @@ def logout():
 
 @app.route('/index')
 def home():
-    if current_user.is_anonymous:
-        return redirect('/login')
+    #if current_user.is_anonymous:
+        #return redirect('/login')
+    #elif current_user.is_authenticated:
+        #return redirect('/index')
     return render_template("index.html")
 
 @app.route('/signup', methods=['GET', 'POST'])
@@ -73,5 +75,8 @@ def multiplication():
 
 @app.route('/division', methods=['GET', 'POST'])
 def division():
-    return render_template('division.html')
+    if current_user.is_anonymous:
+        return redirect('/login')
+    else:
+        return render_template('division.html')
 
