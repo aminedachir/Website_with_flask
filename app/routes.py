@@ -25,8 +25,13 @@ def login():
         else:    
             return "INVALID username or password Try again"
         login_user(user)
-        return redirect('/index'))
+        return redirect('/index')
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect('/login')
 
 @app.route('/index')
 def home():
