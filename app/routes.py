@@ -65,8 +65,9 @@ def change():
 
 @app.route('/multiplication', methods=['GET', 'POST'])
 def multiplication():
-    title = 'multiplication'
-    return render_template('multiplication.html', title = title )
+    if current_user.is_anonymous:
+        return redirect('/login')
+    return render_template('multiplication.html')
 
 @app.route('/division', methods=['GET', 'POST'])
 def division():
