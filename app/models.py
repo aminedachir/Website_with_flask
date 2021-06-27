@@ -2,10 +2,6 @@ from werkzeug.security import generate_password_hash,check_password_hash
 from app import login
 from datetime import datetime
 from app import db
-#from flask_login import UserMixin
-
-#class User(UserMixin, db.Model):
-    # ...
 
 @login.user_loader
 def load_user(id):
