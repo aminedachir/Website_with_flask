@@ -1,6 +1,6 @@
 from flask import render_template, redirect
 from flask.helpers import flash
-from flask_login import current_user
+from flask_login import current_user, login_user, logout_user
 from app import app
 from werkzeug.security import generate_password_hash, check_password_hash
 from app import db
@@ -22,9 +22,10 @@ def login():
                 return redirect('/index')
         elif ((form.email.data) == 'admin' and (form.password.data) == 'admin' ):
             return redirect('/index')
-
         else:    
             return "INVALID username or password Try again"
+        login_user(user)
+        return redirect('/index'))
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/index')
