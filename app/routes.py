@@ -35,6 +35,8 @@ def logout():
 
 @app.route('/index')
 def home():
+    if current_user.is_anonymous:
+        return redirect('/login')
     return render_template("index.html")
 
 @app.route('/signup', methods=['GET', 'POST'])
